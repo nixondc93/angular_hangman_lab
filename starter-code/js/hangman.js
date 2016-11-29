@@ -5,6 +5,7 @@ console.log('hangmanGame loaded');
 // 1. var game = new HangmanGame('supersecretword');
 // 2. game.guess('t');
 var HangmanGame = function(secretWord, tries) {
+  secretWord = secretWord.toLowerCase();
   this.secretWord = secretWord;
   this.input = "";
   this.guesses = [];
@@ -67,7 +68,7 @@ HangmanGame.prototype.filteredWord = function() {
 // determines win/lose status
 HangmanGame.prototype.checkForWinner = function() {
   if(this.triesRemaining === 0) {
-    console.log("Sorry, you loose.")
+    console.log("Sorry, you lose.")
     this.gameOver = true;
     this.gameWon = false;
   // user wins if there are no more underscores in word
